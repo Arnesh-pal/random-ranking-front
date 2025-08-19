@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# 🏆 Real-Time User Ranking Leaderboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application that allows users to claim random points and view a dynamic, real-time leaderboard. The project demonstrates a modern MERN-stack architecture with WebSockets for instant updates.
+---
 
-## Available Scripts
+#Live Link: https://random-ranking-front.vercel.app/
+## ## Features
 
-In the project directory, you can run:
+* **Dynamic User Management**: Select from a list of users or add new users to the database.
+* **Point Claiming**: Award random points (1-10) to any user with a single click.
+* **Real-Time Leaderboard**: The user ranking table updates instantly for all connected clients using WebSockets (Socket.IO).
+* **Persistent Data**: User data and point claim history are stored in a MongoDB database.
+* **New Leader Celebration**: A confetti animation automatically triggers whenever a new user takes the #1 spot.
+* **Modern UI**: A stylish, responsive user interface built with React.
+* **Separate Frontend & Backend**: A decoupled architecture, deployed on separate, scalable hosting platforms.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ## Tech Stack & Architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project is built with the MERN stack and deployed on modern hosting platforms.
 
-### `npm test`
+* **Frontend**:
+    * **React.js**: For building the user interface.
+    * **Socket.IO Client**: To receive real-time updates from the server.
+    * **Axios**: For making API requests to the backend.
+    * **FontAwesome**: For UI icons.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Backend**:
+    * **Node.js**: JavaScript runtime environment.
+    * **Express.js**: Web application framework for the API.
+    * **Mongoose**: Object Data Modeling (ODM) library for MongoDB.
+    * **Socket.IO**: For enabling real-time, bidirectional event-based communication.
 
-### `npm run build`
+* **Database**:
+    * **MongoDB Atlas**: A fully-managed cloud database service.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **Deployment**:
+    * **Frontend**: Deployed on **Vercel**.
+    * **Backend**: Deployed on **Render**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ## Getting Started: Local Development Setup
 
-### `npm run eject`
+To get a local copy up and running, follow these simple steps.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Make sure you have the following installed on your machine:
+* [Node.js](https://nodejs.org/) (which includes npm)
+* [Git](https://git-scm.com/)
+* A free [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) account.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### ### Backend Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1.  **Clone the backend repository:**
+    ```bash
+    git clone <your-backend-repo-url>
+    cd user-ranking-backend
+    ```
 
-## Learn More
+2.  **Install NPM packages:**
+    ```bash
+    npm install
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3.  **Create a `.env` file** in the root of the `user-ranking-backend` directory and add your MongoDB connection string:
+    ```
+    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/user-ranking-db?retryWrites=true&w=majority
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4.  **Start the backend server:**
+    ```bash
+    node server.js
+    ```
+    Your backend will be running on `http://localhost:5001`.
 
-### Code Splitting
+### ### Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1.  **Clone the frontend repository in a separate folder:**
+    ```bash
+    git clone <your-frontend-repo-url>
+    cd user-ranking-frontend
+    ```
 
-### Analyzing the Bundle Size
+2.  **Install NPM packages:**
+    ```bash
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3.  **Connect to the local backend:**
+    Open `src/App.js` and ensure the `API_URL` is pointing to your local server:
+    ```javascript
+    const API_URL = 'http://localhost:5001';
+    ```
 
-### Making a Progressive Web App
+4.  **Start the frontend application:**
+    ```bash
+    npm start
+    ```
+    Your React app will open in your browser at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## ## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To run this project, you will need to add the following environment variables to your `.env` file in the backend directory:
 
-### Deployment
+* `MONGO_URI`: Your connection string from MongoDB Atlas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+When deploying, you will also need to set these on your hosting provider (Render):
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* `MONGO_URI`: The same connection string.
+* `FRONTEND_URL`: The live URL of your deployed Vercel frontend.
