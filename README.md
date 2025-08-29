@@ -65,7 +65,7 @@ Make sure you have the following installed:
 
 1. Clone the backend repository:
     ```bash
-    git clone <your-backend-repo-url>
+    git clone https://github.com/Arnesh-pal/random-ranking.git
     cd user-ranking-backend
     ```
 
@@ -91,7 +91,7 @@ Make sure you have the following installed:
 
 1. Clone the frontend repository:
     ```bash
-    git clone <your-frontend-repo-url>
+    git clone https://github.com/Arnesh-pal/random-ranking-front.git
     cd user-ranking-frontend
     ```
 
